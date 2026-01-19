@@ -1,16 +1,17 @@
 pipeline {
     agent any
-
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                echo 'Build gestart'
+                git branch: 'main',
+                    url: 'https://github.com/Arnoldingo/ITM-Jenkins.git',
+                    credentialsId: 'github-token'
             }
         }
 
-        stage('Test') {
+        stage('Build') {
             steps {
-                echo 'Tests uitvoeren'
+                echo 'Pipeline werkt!'
             }
         }
     }
